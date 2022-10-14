@@ -11,10 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2 #Be sure you check-out the repo first. Deta CLI needs access to the files
       - name: 'show envs'
-        run : echo "zNtpRh5L_HHWbTUV5mUnSZMgCBKvMHhD5fzrMUPM9"
+        run : echo ${{ secrets.DETA_TOKEN }}
       - uses: BogDAAAMN/deta-deploy-action@v1.0.1
         with:
-          deta-access-token: "zNtpRh5L_HHWbTUV5mUnSZMgCBKvMHhD5fzrMUPM9" #Deta access token https://docs.deta.sh/docs/cli/auth
+          deta-access-token: ${{ secrets.DETA_TOKEN }} #Deta access token https://docs.deta.sh/docs/cli/auth
           deta-name: 'shreyasbot' #Deta Micro name https://docs.deta.sh/docs/cli/commands/#deta-clon
     environment:
       name: 'Production'
